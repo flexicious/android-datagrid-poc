@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string-array name="deposits">
+        <item>Deposit</item>
+    </string-array>
+    <string-array name="departments">
+        <item>Department</item>
+    </string-array>
+    <string-array name="areas">
+        <item>area</item>
+    </string-array>
+    <string-array name="all_family">
+        <item>family</item>
+    </string-array>
+</resources>

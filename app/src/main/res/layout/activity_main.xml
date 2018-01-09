@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.poc.demoapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#544"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7.4"
+            android:background="#6f4"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"
+                android:weightSum="10"
+                android:background="#fafafa"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="4">
+
+                    <Spinner
+                        android:id="@+id/despositDropDownMenu"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/deposits"
+                        />
+
+                    <Spinner
+                        android:id="@+id/departmentDropDownMenu"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/departments"
+                        />
+
+                    <Spinner
+                        android:id="@+id/areaDropDownMenu"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/areas"
+                        />
+
+                    <Spinner
+                        android:id="@+id/familyDropDownMenu"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:spinnerMode="dropdown"
+                        android:entries="@array/all_family"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/promoGrp"
+                        android:layout_width="40dp"
+                        android:layout_height="45dp"
+                        android:layout_margin="5dp"
+                        android:weightSum="4"
+
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/radioButton1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:scaleX="0.85"
+                            android:scaleY="0.85"
+                            android:text="Promo" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_marginTop="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:scaleX="0.85"
+                            android:scaleY="0.85"
+                            android:text="No Promo" />
+
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/searchBox"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/search_text_style"
+                        android:drawableLeft="@drawable/search"
+                        android:inputType="textPersonName"
+                        android:textAlignment="center"
+                        android:hint="Article" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="6">
+
+                    <Button
+                        android:id="@+id/btnApply"
+                        android:layout_width="90dp"
+                        android:layout_margin="4dp"
+                        android:layout_height="wrap_content"
+                        android:text="Apply" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7.5"
+                android:padding="10dp"
+                android:background="#c0c0e0">
+
+                <com.flexicious.nestedtreedatagrid.FlexDataGrid
+                android:id="@+id/dataGrid"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+                </com.flexicious.nestedtreedatagrid.FlexDataGrid>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.6"
+            android:padding="10dp"
+            android:background="#f0f0f0"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/txtField1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Edit Field 1" />
+
+            <EditText
+                android:id="@+id/txtField2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Edit Field 2" />
+
+            <EditText
+                android:id="@+id/txtField3"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Edit Field 3" />
+
+            <EditText
+                android:id="@+id/txtArea"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:ems="10"
+                android:gravity="top"
+                android:enabled="false"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="confirm" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

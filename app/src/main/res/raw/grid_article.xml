@@ -1,0 +1,62 @@
+<grid
+    enableDrag="true"
+    enableMultiColumnSort="true"
+    selectionMode="singleRow">
+    <level
+        pageSize="50"
+        selectedKeyField="id">
+        <columns>
+            <column
+                itemRenderer="renderers.IconRenderer"
+                columnLockMode="left"
+                />
+            <column
+                dataField="article"
+                headerText="Article"
+                textAlign="right"
+                 />
+            <column
+                dataField="deposit"
+                headerText="Deposit"
+                sortNumeric="true"
+                textAlign="right"
+                width="160" />
+            <column
+                dataField="dept"
+                headerText="Department"
+                textAlign="center"
+                width="160" />
+            <column
+                dataField="area"
+                headerText="Area"
+                textAlign="center"
+                width="160" />
+            <column
+                dataField="family"
+                headerText="Family"
+                textAlign="center"
+                width="160" />
+            <column
+                dataField="promo"
+                headerText="Promo"
+                textAlign="center"
+                width="160" />
+            <column
+                dataField="edit1"
+                headerText="Edit Field 1"
+                width="160" />
+            <column
+                dataField="edit2"
+                headerText="Edit Field 2"
+                width="160" />
+            <column
+                dataField="edit3"
+                headerText="Edit Field 3"
+                width="160" />
+            <column
+                dataField="field7"
+                headerText="Field7"
+                width="160" />
+        </columns>
+    </level>
+</grid>

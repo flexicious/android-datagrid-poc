@@ -1,0 +1,168 @@
+{
+    columnMoveResizeSeparatorColor: "#000000",
+    columnMoveAlpha: 0.8,
+    backgroundColor: ["#FFFFFF", "#FFFFFF"],
+    alternatingItemColors:  ["#EFF3FA", "#FFFFFF"],
+    alternatingTextColors:  ["#000000", "#000000"],
+
+    dragAlpha:0.8,	
+    dragRowBorderStyle:"solid",
+    editItemColors:  ["#F5F9FC", "#C5CED6"],
+    editTextColor: "#000000",
+
+    errorBackgroundColor: "#FCDCDF" ,
+
+    verticalGridLineColor: "#696969",
+    verticalGridLines:true,
+    verticalGridLineThickness:1,
+
+
+    horizontalGridLineColor: "#696969",
+    horizontalGridLines:true,
+    horizontalGridLineThickness:1,
+
+    textDisabledColor:"#AFAFAF",
+
+
+    columnGroupVerticalGridLineColor: "#666666",
+    columnGroupVerticalGridLines:true,
+    columnGroupVerticalGridLineThickness:1,
+
+    columnGroupHorizontalGridLineColor: "#666666",
+    columnGroupHorizontalGridLines:true,
+    columnGroupHorizontalGridLineThickness:1,
+    columnGroupDrawTopBorder:false,
+
+
+
+    headerVerticalGridLineColor: "#666666",
+    headerVerticalGridLines:true,
+    headerVerticalGridLineThickness:1,
+
+    headerHorizontalGridLineColor: "#666666",
+    headerHorizontalGridLines:true,
+    headerHorizontalGridLineThickness:1,
+    headerDrawTopBorder:false,
+    headerSortSeparatorRight:16,
+
+    filterVerticalGridLineColor: "#666666",
+    filterVerticalGridLines:true,
+    filterVerticalGridLineThickness:1,
+
+    filterHorizontalGridLineColor: "#666666",
+    filterHorizontalGridLines:true,
+    filterHorizontalGridLineThickness:1,
+    filterDrawTopBorder:false,
+
+    footerVerticalGridLineColor: "#666666",
+    footerVerticalGridLines:true,
+    footerVerticalGridLineThickness:1,
+
+    footerHorizontalGridLineColor: "#666666",
+    footerHorizontalGridLines:false,
+    footerHorizontalGridLineThickness:1,
+    footerDrawTopBorder:false,
+
+    pagerVerticalGridLineColor: "#666666",
+    pagerVerticalGridLines:true,
+    pagerVerticalGridLineThickness:5,
+
+    pagerHorizontalGridLineColor: "#666666",
+    pagerHorizontalGridLines:true,
+    pagerHorizontalGridLineThickness:1,
+
+
+    rendererVerticalGridLineColor: "#666666",
+    rendererVerticalGridLines:true,
+    rendererVerticalGridLineThickness:10,
+
+    rendererHorizontalGridLineColor: "#666666",
+    rendererHorizontalGridLines:true,
+    rendererHorizontalGridLineThickness:1,
+    rendererDrawTopBorder:false,
+
+    rollOverColor: "#CEDBEF",
+
+    headerRollOverColors:  ["#CEDBEF", "#CEDBEF"],
+    headerColors:  ["#E6E6E6", "#FFFFFF"],
+
+    columnGroupRollOverColors:  ["#CEDBEF", "#CEDBEF"],
+    columnGroupColors:  ["#E6E6E6", "#FFFFFF"],
+
+    footerRollOverColors:  ["#CEDBEF", "#CEDBEF"],
+    footerColors:  ["#BFBFBF", "#BFBFBF"],
+
+    fixedColumnFillColors:  ["#BFBFBF","#BFBFBF"],
+
+    filterRollOverColors:  ["#CEDBEF", "#CEDBEF"],
+    filterColors:  ["#CFCFCF", "#CFCFCF"],
+
+    activeCellColor: "#B7DBFF",
+
+    pagerRollOverColors:  ["#E6E6E6", "#FFFFFF"],
+    pagerColors:  ["#E6E6E6", "#FFFFFF"],
+
+    rendererRollOverColors:  ["#FFFFFF", "#FFFFFF"],
+    rendererColors:   ["#FFFFFF","#FFFFFF"],
+
+    lockedSeparatorColor:"#6f6f6f6f",
+    lockedSeparatorThickness: 2,
+
+    
+    textSelectedColor:"#000000",
+    textRollOverColor:"#000000",
+    selectionDisabledColor: "#DDDDDD",
+    selectionDisabledTextColor:"#DDDDDD",
+
+    disclosureClosedIcon: "flxs_expandone",
+    disclosureOpenIcon: "flxs_collapseone",
+    sortArrowSkin: "flxs_sortarrow",
+
+    paddingBottom: 2,
+    paddingLeft: 2,
+    paddingRight: 2,
+    paddingTop: 2,
+
+    columnGroupPaddingBottom: 2,
+    columnGroupPaddingLeft: 2,
+    columnGroupPaddingRight: 2,
+    columnGroupPaddingTop: 2,
+
+    headerPaddingBottom: 2,
+    headerPaddingLeft: 2,
+    headerPaddingRight: 2,
+    headerPaddingTop: 2,
+
+    filterPaddingBottom: 2,
+    filterPaddingLeft: 2,
+    filterPaddingRight: 2,
+    filterPaddingTop: 2,
+
+    footerPaddingBottom: 2,
+    footerPaddingLeft: 2,
+    footerPaddingRight: 2,
+    footerPaddingTop: 2,
+
+    pagerPaddingBottom: 0,
+    pagerPaddingLeft: 0,
+    pagerPaddingRight: 0,
+    pagerPaddingTop: 0,
+    rendererPaddingBottom: 2,
+    rendererPaddingLeft: 2,
+    rendererPaddingRight: 2,
+    rendererPaddingTop: 2,
+
+    borderSides:"left,right,top,bottom",
+    borderThickness:1,
+    borderColor: "#666666",
+
+    columnGroupClosedIcon: "flxs_expandone",
+    columnGroupOpenIcon: "flxs_collapseone",
+
+    multiColumnSortNumberHeight:15,
+    multiColumnSortNumberWidth:10,
+    selectionColor: "#7FCEFF", 
+    headerSortSeparatorColor:"#CCCCCC",
+	textAlign : "left"
+
+}

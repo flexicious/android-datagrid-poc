@@ -1,5 +1,7 @@
 <grid
     enableDrag="true"
+	enablePaging="true"
+	enableFilters="true"
     enableMultiColumnSort="true"
     selectionMode="singleRow">
     <level
@@ -20,6 +22,8 @@
                 headerText="Deposit"
                 sortNumeric="true"
                 textAlign="right"
+                filterControl="TextInput"
+                filterOperation="Contains"
                 width="160" />
             <column
                 dataField="dept"
@@ -40,6 +44,8 @@
                 dataField="promo"
                 headerText="Promo"
                 textAlign="center"
+                filterControl="ComboBox"
+                filterComboBoxBuildFromGrid="true"
                 width="160" />
             <column
                 dataField="edit1"

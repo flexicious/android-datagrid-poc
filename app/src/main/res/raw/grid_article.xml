@@ -2,6 +2,7 @@
     enableDrag="true"
 	enablePaging="true"
 	enableFilters="true"
+    enablePreferencePersistence="true"
     enableMultiColumnSort="true"
     selectionMode="singleRow">
     <level

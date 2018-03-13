@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/flxs_savesettings_titletextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" >
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_orderofcolumns_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_filtercriteria_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" >
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_visibilityofcolumns_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_sortsettings_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" >
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_widthofcolumns_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_scrollpositions_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" >
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_filterfootervisibility_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_recordsperpage_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp" >
+
+            <CheckBox
+                android:id="@+id/flxs_savesettings_printsettings_cb"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:checked="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:gravity="right|center" >
+
+            <Button
+                android:id="@+id/flxs_savesettings_clearsavedpreference_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/flxs_savesettings_savepreferences_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/flxs_savesettings_cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

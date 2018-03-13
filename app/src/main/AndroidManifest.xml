@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
     package="com.poc.demoapp">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
@@ -16,6 +16,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.flexicious.screens.ExportActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.flexicious.screens.SaveSettingsActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.flexicious.screens.SettingsActivity"
+            android:theme="@android:style/Theme.Material.Dialog"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="NewApi" />
+        <activity
+            android:name="com.flexicious.screens.SortActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

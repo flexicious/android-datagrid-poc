@@ -11,7 +11,10 @@ import com.flexicious.utils.UIUtils;
 import com.poc.demoapp.MainActivity;
 import com.poc.demoapp.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import util.ResUtils;
@@ -93,7 +96,7 @@ public class IconRenderer extends GridLayout {
 
     private boolean makeItemSelected() {
         if (null != ctx.grid && data != ctx.grid.getSelectedItem()) {
-            ctx.grid.setSelectedItem(data);
+            ctx.grid.setSelectedObjects(Arrays.asList(new Object[]{data}), true);
             return true;
         }
         return false;

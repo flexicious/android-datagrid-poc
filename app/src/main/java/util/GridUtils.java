@@ -2,9 +2,11 @@ package util;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.flexicious.controls.core.Function;
 import com.flexicious.nestedtreedatagrid.FlexDataGrid;
 import com.flexicious.nestedtreedatagrid.FlexDataGridColumn;
 import com.flexicious.utils.UIUtils;

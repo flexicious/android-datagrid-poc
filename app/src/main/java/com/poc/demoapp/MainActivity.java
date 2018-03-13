@@ -2,6 +2,7 @@ package com.poc.demoapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,8 +12,12 @@ import android.widget.Spinner;
 
 import com.flexicious.controls.core.Function;
 import com.flexicious.nestedtreedatagrid.FlexDataGrid;
+import com.flexicious.nestedtreedatagrid.FlexDataGridColumn;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import util.ResUtils;
 import util.GridUtils;
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         grid.delegate = this;
         grid.buildFromXml(ResUtils.getStringFromResource(this, R.raw.grid_article));
         grid.getColumnLevel().setFilterFunction(new Function(this, "externalFilterFunction"));
+        AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", new Function(this, "getSortedNumbers"));
         GridUtils.setStyle(grid);
         grid.setDataProviderJson(ResUtils.getStringFromResource(this, R.raw.article_data));
         updateAllComboBoxItems();
@@ -114,5 +120,74 @@ public class MainActivity extends AppCompatActivity {
             null != noPromo && noPromo.isChecked() && !GridUtils.contains(item, "promo", "no"))
             return false;
         return true;
+    }
+
+    public void AddNumberColumn(FlexDataGrid grid,
+                                       FlexDataGridColumn dgCol,
+                                       ColumnInfo ci,
+                                       String valueField,
+                                       boolean canEdit,
+                                       String fitAs,
+                                       Function sortCompareFunction)
+    {
+        if(ci==null)
+        {
+            Log.d("Utils","null item :" + valueField);
+            return;
+        }
+
+        dgCol.textAlign="right";
+        dgCol.sortNumeric=true;
+        dgCol.setDataField(valueField);
+        dgCol.setHeaderText(ci.getGridColumnName());
+        dgCol.setVisible(ci.isGridVisible());
+        dgCol.setEditable(canEdit);
+        dgCol.setColumnWidthMode(fitAs);
+        dgCol.setSortCompareFunction(sortCompareFunction);
+        dgCol.setWidth(100);
+
+        List<FlexDataGridColumn> dgCols = new ArrayList<>();
+
+        for(FlexDataGridColumn col : grid.getColumns()) {
+            dgCols.add(col);
+        }
+
+        dgCols.add(dgCol);
+        grid.setColumns(dgCols);
+
+    }
+
+    public static class ColumnInfo {
+        String name;
+        boolean visible;
+
+        public ColumnInfo(String name, boolean visible) {
+            this.name = name;
+            this.visible = visible;
+        }
+
+        public String getGridColumnName() {
+            return name;
+        }
+
+        public boolean isGridVisible() {
+            return visible;
+        }
+    }
+
+    public int getSortedNumbers(Object o1, Object o2) {
+        if(null == o1 && null == o2)
+            return 0;
+        if(null == o1)
+            return -1;
+        if(null == o2)
+            return 1;
+
+        Map<String, Object> mO1 = (Map<String, Object>) o1;
+        Map<String, Object> mO2 = (Map<String, Object>) o2;
+
+        int d = Integer.parseInt(String.valueOf(mO1.get("id"))) - Integer.parseInt(String.valueOf(mO2.get("id")));
+        return d != 0 ? d < 0 ? -1 : 1 : 0;
+
     }
 }

@@ -19,12 +19,14 @@
 
         <activity
             android:name="com.flexicious.screens.ExportActivity"
-            android:theme="@android:style/Theme.Dialog"
-            android:windowSoftInputMode="stateHidden" />
+            android:theme="@android:style/Theme.Material.Dialog"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="NewApi" />
         <activity
             android:name="com.flexicious.screens.SaveSettingsActivity"
-            android:theme="@android:style/Theme.Dialog"
-            android:windowSoftInputMode="stateHidden" />
+            android:theme="@android:style/Theme.Material.Dialog"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="NewApi" />
         <activity
             android:name="com.flexicious.screens.SettingsActivity"
             android:theme="@android:style/Theme.Material.Dialog"
@@ -32,8 +34,9 @@
             tools:ignore="NewApi" />
         <activity
             android:name="com.flexicious.screens.SortActivity"
-            android:theme="@android:style/Theme.Dialog"
-            android:windowSoftInputMode="stateHidden" />
+            android:theme="@android:style/Theme.Material.Dialog"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="NewApi" />
     </application>
 
 </manifest>

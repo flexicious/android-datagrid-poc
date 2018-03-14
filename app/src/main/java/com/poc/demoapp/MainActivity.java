@@ -1,5 +1,6 @@
 package com.poc.demoapp;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,22 +77,34 @@ public class MainActivity extends AppCompatActivity {
         AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", new Function(this, "getSortedNumbers"));
         GridUtils.setStyle(grid);
         grid.setDataProviderJson(ResUtils.getStringFromResource(this, R.raw.article_data));
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        grid.watchForDimensionChanges = false;
+                    }
+                });
+            }
+        }, 3000);
         updateAllComboBoxItems();
     }
 
     public void populateEditableItems() {
-        for(int i=0;i<editTexts.length;i++) {
+        for (int i = 0; i < editTexts.length; i++) {
             editTexts[i].setText(grid.getColumnByDataField("edit" + (i + 1)).itemToLabelCommon(grid.getSelectedItem()));
         }
         enableEditMode = true;
     }
 
     public void updateEditableColumns() {
-        if( enableEditMode && grid.getSelectedItem() instanceof HashMap ) {
+        if (enableEditMode && grid.getSelectedItem() instanceof HashMap) {
             enableEditMode = !enableEditMode;
             HashMap<String, Object> item = (HashMap<String, Object>) grid.getSelectedItem();
 
-            for(int i=0;i<editTexts.length;i++) {
+            for (int i = 0; i < editTexts.length; i++) {
                 item.put("edit" + (i + 1), editTexts[i].getText());
                 editTexts[i].setText(null);
             }
@@ -106,38 +119,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Boolean externalFilterFunction(Object item) {
-        if(depositCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "deposit", depositCBox.getSelectedItem()))
+        if (depositCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "deposit", depositCBox.getSelectedItem()))
             return false;
-        if(departmentCbox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "dept", departmentCbox.getSelectedItem()))
+        if (departmentCbox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "dept", departmentCbox.getSelectedItem()))
             return false;
-        if(areaCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "area", areaCBox.getSelectedItem()))
+        if (areaCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "area", areaCBox.getSelectedItem()))
             return false;
-        if(familyCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "family", familyCBox.getSelectedItem()))
+        if (familyCBox.getSelectedItemPosition() > 0 && !GridUtils.contains(item, "family", familyCBox.getSelectedItem()))
             return false;
-        if(searchBox.getText().length() > 0 && !GridUtils.contains(item, "article", searchBox.getText()))
+        if (searchBox.getText().length() > 0 && !GridUtils.contains(item, "article", searchBox.getText()))
             return false;
-        if( null != promo && promo.isChecked() && !GridUtils.contains(item, "promo", "yes") ||
-            null != noPromo && noPromo.isChecked() && !GridUtils.contains(item, "promo", "no"))
+        if (null != promo && promo.isChecked() && !GridUtils.contains(item, "promo", "yes") ||
+                null != noPromo && noPromo.isChecked() && !GridUtils.contains(item, "promo", "no"))
             return false;
         return true;
     }
 
     public void AddNumberColumn(FlexDataGrid grid,
-                                       FlexDataGridColumn dgCol,
-                                       ColumnInfo ci,
-                                       String valueField,
-                                       boolean canEdit,
-                                       String fitAs,
-                                       Function sortCompareFunction)
-    {
-        if(ci==null)
-        {
-            Log.d("Utils","null item :" + valueField);
+                                FlexDataGridColumn dgCol,
+                                ColumnInfo ci,
+                                String valueField,
+                                boolean canEdit,
+                                String fitAs,
+                                Function sortCompareFunction) {
+        if (ci == null) {
+            Log.d("Utils", "null item :" + valueField);
             return;
         }
 
-        dgCol.textAlign="right";
-        dgCol.sortNumeric=true;
+        dgCol.textAlign = "right";
+        dgCol.sortNumeric = true;
         dgCol.setDataField(valueField);
         dgCol.setHeaderText(ci.getGridColumnName());
         dgCol.setVisible(ci.isGridVisible());
@@ -148,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<FlexDataGridColumn> dgCols = new ArrayList<>();
 
-        for(FlexDataGridColumn col : grid.getColumns()) {
+        for (FlexDataGridColumn col : grid.getColumns()) {
             dgCols.add(col);
         }
 
@@ -176,11 +187,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int getSortedNumbers(Object o1, Object o2) {
-        if(null == o1 && null == o2)
+        if (null == o1 && null == o2)
             return 0;
-        if(null == o1)
+        if (null == o1)
             return -1;
-        if(null == o2)
+        if (null == o2)
             return 1;
 
         Map<String, Object> mO1 = (Map<String, Object>) o1;

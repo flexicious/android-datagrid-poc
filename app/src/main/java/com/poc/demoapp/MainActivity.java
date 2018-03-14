@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         grid.delegate = this;
         grid.buildFromXml(ResUtils.getStringFromResource(this, R.raw.grid_article));
         grid.getColumnLevel().setFilterFunction(new Function(this, "externalFilterFunction"));
-        AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", new Function(this, "getSortedNumbers"));
+        AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", null);
         GridUtils.setStyle(grid);
         grid.setDataProviderJson(ResUtils.getStringFromResource(this, R.raw.article_data));
         final Handler handler = new Handler();
@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
         dgCol.setVisible(ci.isGridVisible());
         dgCol.setEditable(canEdit);
         dgCol.setColumnWidthMode(fitAs);
-        dgCol.setSortCompareFunction(sortCompareFunction);
+        if(null != sortCompareFunction)
+            dgCol.setSortCompareFunction(sortCompareFunction);
         dgCol.setWidth(100);
 
         List<FlexDataGridColumn> dgCols = new ArrayList<>();

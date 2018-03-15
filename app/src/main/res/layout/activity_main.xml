@@ -133,6 +133,12 @@
                         android:layout_margin="4dp"
                         android:layout_height="wrap_content"
                         android:text="Apply" />
+                    <Button
+                        android:id="@+id/btnClear"
+                        android:layout_width="90dp"
+                        android:layout_margin="4dp"
+                        android:layout_height="wrap_content"
+                        android:text="Clear" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import com.flexicious.controls.core.Function;
 import com.flexicious.nestedtreedatagrid.FlexDataGrid;
 import com.flexicious.nestedtreedatagrid.FlexDataGridColumn;
+import com.flexicious.nestedtreedatagrid.FlexDataGridColumnGroup;
+import com.flexicious.nestedtreedatagrid.interfaces.IFlexDataGridCell;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner depositCBox, departmentCbox, areaCBox, familyCBox;
     RadioGroup promoGroup;
     RadioButton promo, noPromo;
-    Button btnFilter, btnConfirm;
+    Button btnFilter, btnConfirm, btnClear;
     EditText[] editTexts = new EditText[3];
 
     boolean enableEditMode = false;
@@ -66,16 +68,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnClear = findViewById(R.id.btnClear);
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetFilters(true);
+            }
+        });
+
         editTexts[0] = findViewById(R.id.txtField1);
         editTexts[1] = findViewById(R.id.txtField2);
         editTexts[2] = findViewById(R.id.txtField3);
+
+        resetFilters(false);
 
         grid = (FlexDataGrid) findViewById(R.id.dataGrid);
         grid.delegate = this;
         grid.buildFromXml(ResUtils.getStringFromResource(this, R.raw.grid_article));
         grid.getColumnLevel().setFilterFunction(new Function(this, "externalFilterFunction"));
+        AddIconMerceTypeOrderColumn(new FlexDataGridColumn(), new ColumnInfo("Art", true), "icon", false, "");
         AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", null);
         GridUtils.setStyle(grid);
+        grid.setPageSize(5);
+        grid.setFilterRowHeight(80);
         grid.setDataProviderJson(ResUtils.getStringFromResource(this, R.raw.article_data));
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -135,6 +150,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void resetFilters(boolean rebuildBody) {
+        depositCBox.setSelection(0);
+        departmentCbox.setSelection(0);
+        areaCBox.setSelection(0);
+        familyCBox.setSelection(0);
+        searchBox.setText(null);
+        promoGroup.clearCheck();
+        if(rebuildBody) grid.rebuildBody(true);
+    }
+
     public void AddNumberColumn(FlexDataGrid grid,
                                 FlexDataGridColumn dgCol,
                                 ColumnInfo ci,
@@ -154,8 +179,7 @@ public class MainActivity extends AppCompatActivity {
         dgCol.setVisible(ci.isGridVisible());
         dgCol.setEditable(canEdit);
         dgCol.setColumnWidthMode(fitAs);
-        if(null != sortCompareFunction)
-            dgCol.setSortCompareFunction(sortCompareFunction);
+        dgCol.setSortCompareFunction(sortCompareFunction);
         dgCol.setWidth(100);
 
         List<FlexDataGridColumn> dgCols = new ArrayList<>();
@@ -166,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
 
         dgCols.add(dgCol);
         grid.setColumns(dgCols);
-
     }
 
     public static class ColumnInfo {
@@ -201,5 +224,74 @@ public class MainActivity extends AppCompatActivity {
         int d = Integer.parseInt(String.valueOf(mO1.get("id"))) - Integer.parseInt(String.valueOf(mO2.get("id")));
         return d != 0 ? d < 0 ? -1 : 1 : 0;
 
+    }
+
+    public void AddIconMerceTypeOrderColumn(
+            FlexDataGridColumn dgCol,
+            ColumnInfo ci,
+            String valueField,
+            boolean canEdit,
+            String fitAs)
+    {
+
+        dgCol.hideText=true;
+        dgCol.setDataField(valueField);
+        dgCol.setHeaderText(ci.getGridColumnName());
+        dgCol.setVisible(ci.isGridVisible());
+        dgCol.setEditable(canEdit);
+        dgCol.setColumnWidthMode(FlexDataGridColumn.COLUMN_WIDTH_MODE_FIXED);
+        dgCol.setWidth(64);
+//        dgCol.iconRight=12;
+//        dgCol.iconLeft=12;
+        dgCol.setEnableIcon(true);
+
+        dgCol.iconFunction= new Function(this,"IconFunctions_dynamicIconMerceFunction");
+
+        List<FlexDataGridColumn> dgCols = new ArrayList<>();
+
+        for (FlexDataGridColumn col : grid.getColumns()) {
+            dgCols.add(col);
+        }
+
+        dgCols.add(dgCol);
+        grid.setColumns(dgCols);
+    }
+
+    public Object IconFunctions_dynamicIconMerceFunction(IFlexDataGridCell cell, String state){
+
+        if(cell.getRowInfo().getIsHeaderRow()) return null;
+
+        String label = cell.getColumn().itemToLabelCommon(cell.getRowInfo().getData());
+
+        switch(label)
+        {
+            case "+":
+                return getImageResourceItem();
+            case "%":
+                return getImageResourceTwoWeeks();
+            case "#":
+                return getImageResourceThreeWeeks();
+
+        }
+        return getImageResourceEmpty();
+    }
+
+    public Integer getImageResourceNew(){
+        return R.drawable.newart_32;
+    }
+    public Integer getImageResourceTwoWeeks(){
+        return R.drawable.twoweek_32;
+    }
+
+    public Integer getImageResourceThreeWeeks(){
+        return R.drawable.threeweek_32;
+    }
+
+    public Integer getImageResourceItem(){
+        return R.drawable.cart_32;
+    }
+
+    public Integer getImageResourceEmpty(){
+        return R.drawable.empty_32;
     }
 }

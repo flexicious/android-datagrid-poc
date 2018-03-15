@@ -46,7 +46,7 @@ public class GridUtils {
     }
 
     public static boolean contains(Object item, String dataField, Object searchItem) {
-        String label = (String) UIUtils.resolveExpression(item, dataField);
+        String label = UIUtils.toString(UIUtils.resolveExpression(item, dataField));
         return label.indexOf(UIUtils.toString(searchItem)) != -1;
     }
 }

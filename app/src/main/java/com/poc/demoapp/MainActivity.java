@@ -90,20 +90,22 @@ public class MainActivity extends AppCompatActivity {
         AddNumberColumn(grid, new FlexDataGridColumn(), new ColumnInfo("ID", true), "id", true, "fixed", null);
         GridUtils.setStyle(grid);
         grid.setPageSize(5);
-        grid.setFilterRowHeight(80);
+        grid.setFilterRowHeight(120);
         grid.setDataProviderJson(ResUtils.getStringFromResource(this, R.raw.article_data));
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        grid.watchForDimensionChanges = false;
-                    }
-                });
-            }
-        }, 3000);
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                MainActivity.this.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        grid.watchForDimensionChanges = false;
+//                    }
+//                });
+//            }
+//        }, 3000);
+        grid.validateNow();
+        grid.reDraw();
         updateAllComboBoxItems();
     }
 
